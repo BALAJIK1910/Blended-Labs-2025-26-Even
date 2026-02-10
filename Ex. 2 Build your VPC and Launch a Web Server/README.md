@@ -35,62 +35,47 @@ The objective of this experiment is to understand how to design and configure a 
 
 ## Tasks Performed
 
-### Task 1: Create a VPC
+Task 1: Create a VPC
 
-* VPC Name: _________________________________________________
-* CIDR Block: _______________________________________________
+Create a new Virtual Private Cloud (VPC) with a private IP address range. The VPC acts as a logically isolated network in AWS where all other resources will be deployed.
 
----
+Students should create a VPC with an appropriate CIDR block (for example, 10.0.0.0/16) and assign a meaningful name.
 
-### Task 2: Create a Public Subnet
+Task 2: Create a Public Subnet
 
-* Subnet Name: _______________________________________________
-* Subnet CIDR Block: _________________________________________
-* Auto-assign Public IP: Yes / No
+Create a subnet inside the VPC to host public resources. Enable auto-assign public IPv4 so that instances launched in this subnet receive a public IP address.
 
----
+The subnet should use a smaller CIDR range (for example, 10.0.1.0/24).
 
-### Task 3: Create and Attach Internet Gateway
+Task 3: Create and Attach Internet Gateway
 
-* Internet Gateway Name: _____________________________________
-* Attached to VPC: Yes / No
+Create an Internet Gateway (IGW) and attach it to the VPC. This allows communication between resources in the VPC and the internet.
 
----
+Task 4: Configure Route Table
 
-### Task 4: Configure Route Table
+Create a route table and add a default route (0.0.0.0/0) pointing to the Internet Gateway. Associate this route table with the public subnet.
 
-* Route Table Name: __________________________________________
-* Default Route (0.0.0.0/0 → IGW): Yes / No
-* Subnet Associated: Yes / No
+This step ensures that traffic from the subnet can reach the internet.
 
----
+Task 5: Create Security Group
 
-### Task 5: Create Security Group
+Create a security group to act as a virtual firewall for the EC2 instance. Configure inbound rules to allow:
 
-* Security Group Name: _______________________________________
-* Inbound Rules Configured:
+SSH on port 22
 
-  * SSH (22): Yes / No
-  * HTTP (80): Yes / No
+HTTP on port 80
 
----
+Task 6: Launch EC2 Instance
 
-### Task 6: Launch EC2 Instance
+Launch an EC2 instance inside the public subnet using Amazon Linux 2 AMI and a suitable instance type (t2.micro).
 
-* Instance Name: _____________________________________________
-* AMI Used: _________________________________________________
-* Instance Type: ____________________________________________
-* Public IP Assigned: Yes / No
+Attach the previously created security group and key pair.
 
----
+Task 7: Configure Web Server
 
-### Task 7: Configure Web Server
+Install and start a web server (Apache HTTPD) on the EC2 instance using user data or manual commands.
 
-* Web Server Installed (Apache/HTTPD): Yes / No
-* Service Started Successfully: Yes / No
-* Default Web Page Created: Yes / No
-
----
+Create a simple HTML page and verify that it can be accessed from a web browser using the public IP address of the instance.---
 
 ## Workflow (Student Explanation)
 
