@@ -2,7 +2,7 @@
 
 ## Author
 
-* **Name**: BALAJI KAMATRAJ
+* **Name**: BALAJI KAMARAJ
 * **Register Number**: 212224040043
 * **Date of Submission**: 26.02.2026
 
